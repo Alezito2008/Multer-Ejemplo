@@ -1,11 +1,6 @@
-const fs = require('fs/promises');
-const path = require('path');
-const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
-
 const uploadFile = async (req, res) => {
-    // console.log(req.files['fotito'][0])
-    res.sendStatus(204)
+    if (req.body.error) return res.status(400).json({ error: req.body.error });
+    res.status(200).json({ nombre: req.body.nombre, extension: req.body.extension });
 }
 
 module.exports = { uploadFile };

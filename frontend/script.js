@@ -4,7 +4,7 @@ const subir = async function() {
     const file = foto.files[0]
 
     const formData = new FormData()
-    formData.append('fotito', file)
+    formData.append('archivo', file)
 
     const response = await fetch('http://localhost:5000/upload', {
         method: 'POST',
