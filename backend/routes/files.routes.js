@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { uploadFile } = require('../controllers/files.controller')
+const { uploadFile, obtenerImagen } = require('../controllers/files.controller')
 const multer = require('multer')
 
 const router = Router()
@@ -33,5 +33,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({ storage, fileFilter })
 
 router.post('/upload', upload.single('archivo'), uploadFile)
+
+router.get('/imagenes/:nombre', obtenerImagen)
 
 module.exports = router
